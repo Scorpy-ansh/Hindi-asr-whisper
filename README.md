@@ -57,14 +57,17 @@
 
 ---
 
-## 🧩 Architecture
-```mermaid
 flowchart LR
-  A[Audio (WAV/MP3 or Mic)] --> B[torchaudio load<br/>mono + 16 kHz]
-  B --> C[Log-Mel (80×T)]
-  C --> D[Whisper Encoder]
-  D --> E[Whisper Decoder]
-  E --> F[Hindi Transcript]
-  F -->|optional| G[MT hi→en or Whisper translate]
-  G --> H[English Text]
-  F --> I[WER/CER vs Reference]
+  A[Audio (WAV/MP3 or Mic)]
+  B[torchaudio load · mono 16 kHz]
+  C[Log-Mel (80×T)]
+  D[Whisper Encoder]
+  E[Whisper Decoder]
+  F[Hindi transcript]
+  G[MT hi→en or Whisper translate]
+  H[English text]
+  I[WER/CER vs reference]
+
+  A --> B --> C --> D --> E --> F
+  F --> G --> H
+  F --> I
