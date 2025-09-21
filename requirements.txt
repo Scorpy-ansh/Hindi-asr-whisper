@@ -1,0 +1,8 @@
+torch
+torchaudio
+transformers
+streamlit
+jiwer
+sentencepiece
+sacremoses
+audio-recorder-streamlit
