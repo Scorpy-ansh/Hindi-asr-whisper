@@ -17,11 +17,24 @@
     <img alt="License" src="https://img.shields.io/badge/license-MIT-06d6a0">
   </p>
 
+  <!-- ONE-CLICK LIVE APP BUTTON (BIG) -->
+  <p>
+    <a href="https://hindi-asr-whisper.streamlit.app/" target="_blank">
+      <img src="https://img.shields.io/badge/OPEN%20IN%20STREAMLIT-FF4B4B?style=for-the-badge&logo=streamlit&logoColor=white" alt="Open in Streamlit">
+    </a>
+  </p>
+
+  <!-- Optional QR for slides / mobile users -->
+  <p>
+    <a href="https://hindi-asr-whisper.streamlit.app/" target="_blank">
+      <img src="https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=https://hindi-asr-whisper.streamlit.app/" alt="QR to app">
+    </a>
+  </p>
+
   <!-- Demo GIF (add later at docs/demo.gif) -->
   <img src="docs/demo.gif" alt="Demo" width="850">
 </div>
 
----
 
 ## Table of Contents
 - [✨ Features](#-features)
@@ -57,17 +70,20 @@
 
 ---
 
+## 🧩 Architecture
+``mermaid
 flowchart LR
   A[Audio (WAV/MP3 or Mic)]
-  B[torchaudio load · mono 16 kHz]
-  C[Log-Mel (80×T)]
+  B[torchaudio load - mono 16 kHz]
+  C[Log-Mel (80xT)]
   D[Whisper Encoder]
   E[Whisper Decoder]
   F[Hindi transcript]
-  G[MT hi→en or Whisper translate]
+  G[MT hi->en or Whisper translate]
   H[English text]
   I[WER/CER vs reference]
 
   A --> B --> C --> D --> E --> F
   F --> G --> H
   F --> I
+
