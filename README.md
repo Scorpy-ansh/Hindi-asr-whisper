@@ -71,7 +71,6 @@
 ---
 
 ## 🧩 Architecture
-``mermaid
 flowchart LR
   A[Audio (WAV/MP3 or Mic)]
   B[torchaudio load - mono 16 kHz]
