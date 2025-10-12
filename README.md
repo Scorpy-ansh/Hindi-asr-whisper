@@ -72,7 +72,6 @@
 
 ## 🧩 Architecture
 
-```mermaid
 flowchart LR
     A[🎙️ Audio Input<br>(WAV / MP3 / Mic)] --> B[🔊 torchaudio Load<br>Mono 16 kHz Resample]
     B --> C[📈 Log-Mel Spectrogram<br>(80 × T Features)]
@@ -84,27 +83,3 @@ flowchart LR
     G -->|Whisper translate| H2[🇬🇧 English Text (Whisper)]
     F --> I[📊 WER / CER vs Reference]
 
-## ⚙️ Data Flow Sequence
-
-```mermaid
-sequenceDiagram
-    participant User
-    participant Streamlit as Streamlit App
-    participant Whisper as Whisper ASR
-    participant Translator as MT Model
-    participant Output as Result UI
-
-    User->>Streamlit: 🎙 Upload or record audio
-    Streamlit->>Whisper: 🔊 Send waveform for transcription
-    Whisper-->>Streamlit: 📝 Hindi transcript
-    Streamlit->>Translator: 🌐 Translate Hindi→English
-    Translator-->>Streamlit: 🇬🇧 English text
-    Streamlit-->>User: 📊 Display transcript, translation, WER
-
----
-
-This pairing gives a **complete, professional view**:
-- *Architecture* → shows static system design  
-- *Sequence Diagram* → shows runtime interaction  
-
-Both render visually on GitHub with good readability and clarity for users exploring your repo.
