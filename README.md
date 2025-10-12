@@ -71,18 +71,40 @@
 ---
 
 ## 🧩 Architecture
+
+```mermaid
 flowchart LR
-  A[Audio (WAV/MP3 or Mic)]
-  B[torchaudio load - mono 16 kHz]
-  C[Log-Mel (80xT)]
-  D[Whisper Encoder]
-  E[Whisper Decoder]
-  F[Hindi transcript]
-  G[MT hi->en or Whisper translate]
-  H[English text]
-  I[WER/CER vs reference]
+    A[🎙️ Audio Input<br>(WAV / MP3 / Mic)] --> B[🔊 torchaudio Load<br>Mono 16 kHz Resample]
+    B --> C[📈 Log-Mel Spectrogram<br>(80 × T Features)]
+    C --> D[🧠 Whisper Encoder]
+    D --> E[🗣️ Whisper Decoder]
+    E --> F[📝 Hindi Transcript]
+    F --> G{🌐 Translation Mode}
+    G -->|MT hi→en| H1[🇬🇧 English Text (MT)]
+    G -->|Whisper translate| H2[🇬🇧 English Text (Whisper)]
+    F --> I[📊 WER / CER vs Reference]
 
-  A --> B --> C --> D --> E --> F
-  F --> G --> H
-  F --> I
+## ⚙️ Data Flow Sequence
 
+```mermaid
+sequenceDiagram
+    participant User
+    participant Streamlit as Streamlit App
+    participant Whisper as Whisper ASR
+    participant Translator as MT Model
+    participant Output as Result UI
+
+    User->>Streamlit: 🎙 Upload or record audio
+    Streamlit->>Whisper: 🔊 Send waveform for transcription
+    Whisper-->>Streamlit: 📝 Hindi transcript
+    Streamlit->>Translator: 🌐 Translate Hindi→English
+    Translator-->>Streamlit: 🇬🇧 English text
+    Streamlit-->>User: 📊 Display transcript, translation, WER
+
+---
+
+This pairing gives a **complete, professional view**:
+- *Architecture* → shows static system design  
+- *Sequence Diagram* → shows runtime interaction  
+
+Both render visually on GitHub with good readability and clarity for users exploring your repo.
