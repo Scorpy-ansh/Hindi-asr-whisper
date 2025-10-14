@@ -19,7 +19,7 @@
 
   <!-- ONE-CLICK LIVE APP BUTTON (BIG) -->
   <p>
-    <a href="https://hindi-asr-whisper.streamlit.app/" target="_blank">
+    <a href="[https://hindi-asr-whisper.streamlit.app/" target="_blank">
       <img src="https://img.shields.io/badge/OPEN%20IN%20STREAMLIT-FF4B4B?style=for-the-badge&logo=streamlit&logoColor=white" alt="Open in Streamlit">
     </a>
   </p>
