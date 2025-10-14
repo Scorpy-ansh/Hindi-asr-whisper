@@ -26,11 +26,11 @@
 
 
   <!-- Optional QR for slides / mobile users -->
-  <p>
-    <a href="https://hindi-asr-whisper.streamlit.app/" target="_blank">
-      <img src="https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=https://hindi-asr-whisper.streamlit.app/" alt="QR to app">
-    </a>
-  </p>
+<p align="center">
+  <a href="https://hindi-asr-whisper.streamlit.app/" target="_blank">
+    <img src="https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=https%3A%2F%2Fhindi-asr-whisper.streamlit.app%2F" alt="QR Code to Hindi ASR App">
+  </a>
+</p>
 
   <!-- Demo GIF (add later at docs/demo.gif) -->
   <img src="docs/demo.gif" alt="Demo" width="850">
